@@ -7,13 +7,19 @@ internal class Program
     // The application exists between the { } of Main //
     private static void Main(string[] args)
     {
+        //Point p = new Point(2.65, -9.01);
+        //Console.WriteLine(p.ToString());
+
+        /*
         bool keepRunning = true;
         do
         {
             // Menu //
-            MainMenu();
+           // MainMenu();
 
+            
 
+            
             // Capture User Input //
             string choice = String.Empty;
             while (choice.Length != 1 || (!choice.Equals("0") && !choice.Equals("1") && !choice.Equals("2") && !choice.Equals("3")))
@@ -43,6 +49,7 @@ internal class Program
             }
 
         } while (keepRunning);
+        */
 
         EndProgram();
     }
