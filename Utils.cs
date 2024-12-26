@@ -10,12 +10,12 @@ public static class Utils
         return diff < margin ? true : false;
     }
 
-    public static Tuple<double, double, double, double>(minX, minY, maxX,maxY)
-        GetBoundingBox(List<Point> points)
+    //public static Tuple<double, double, double, double>(minX, minY, maxX,maxY) GetBoundingBox(List<Point> points)
+    public static Tuple<double, double, double, double> GetBoundingBox(List<Point> points)
     {
-        double minX, minY, maxX, maxY;
+        (double minX, double minY, double maxX, double maxY) = (0, 0, 0, 0);
 
-        for each p in points
+        foreach (Point p in points)
         {
             minX = p.X < minX ? p.X : minX;
             minY = p.Y < minY ? p.Y : minY;
@@ -24,6 +24,9 @@ public static class Utils
             maxY = p.Y > minY ? p.Y : minY;
         }
 
-        return new Tuple(minX, minY, maxX, maxY);
+        return new Tuple<double, double, double, double>(minX, minY, maxX, maxY);
     }
 }
+
+
+// mixX = p.X when p.X < minX;
