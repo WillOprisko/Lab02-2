@@ -2,7 +2,7 @@
 
 public static class Utils
 {
-    public static bool IsRealativelyEqual(double d1, double d2)
+    public static bool IsRelativelyEqual(double d1, double d2)
     {
         double margin = Math.Abs(d1 + d2) / 2 * 0.0001;
         double diff   = Math.Abs(d1 - d2);
@@ -11,9 +11,12 @@ public static class Utils
     }
 
     //public static Tuple<double, double, double, double>(minX, minY, maxX,maxY) GetBoundingBox(List<Point> points)
-    public static Tuple<double, double, double, double> GetBoundingBox(List<Point> points)
+    //public static Tuple<double, double, double, double> GetBoundingBox(List<Point> points)
+    public static (double minX, double minY, double maxX, double maxY)
+        GetBoundingBox(List<Point> points)
     {
-        (double minX, double minY, double maxX, double maxY) = (0, 0, 0, 0);
+        (double minX, double minY, double maxX, double maxY) = (Double.MaxValue, Double.MaxValue, Double.MinValue, Double.MinValue);
+
 
         foreach (Point p in points)
         {
@@ -21,10 +24,10 @@ public static class Utils
             minY = p.Y < minY ? p.Y : minY;
 
             maxX = p.X > maxX ? p.X : maxX;
-            maxY = p.Y > minY ? p.Y : minY;
+            maxY = p.Y > maxY ? p.Y : maxY;
         }
 
-        return new Tuple<double, double, double, double>(minX, minY, maxX, maxY);
+        return (minX, minY, maxX, maxY); //new Tuple<double, double, double, double>
     }
 }
 

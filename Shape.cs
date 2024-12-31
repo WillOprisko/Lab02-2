@@ -1,6 +1,6 @@
 ﻿using System;
 
-public /*abstract*/ class Shape
+public abstract class Shape
 {
 	// Fields //
 	protected List<Point> _Vertices = new List<Point>();
@@ -31,11 +31,9 @@ public /*abstract*/ class Shape
         return allPoints;
     }
 
-    // Class Methods //
-    public virtual /*abstract*/ double Area()
-	{
-		return 0;
-	}
+	// Class Methods //
+	public abstract double Area();
+
 
     public virtual double Perimeter()
 	{

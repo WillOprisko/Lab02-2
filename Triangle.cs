@@ -46,6 +46,11 @@ public class Triangle : Shape
         return Math.Sqrt(s * a * b * c);
     }
 
+    override public string ToString()
+    {
+        return $"Triangle: {base.ToString()}";
+    }
+
     // Class Methods //
     public virtual bool IsEquilateral()
     {
@@ -67,7 +72,7 @@ public class Triangle : Shape
         Double[] sideDistance = new Double[Vertices.Count];
         Boolean[] equalSides = new Boolean[Vertices.Count];
 
-        int sameSides = 0;
+        int congruentSides = 0;
 
         int lastIndex = Vertices.Count - 1;
 
@@ -87,23 +92,23 @@ public class Triangle : Shape
         {
             if (i == lastIndex)
             {
-                equalSides[i] = Utils.IsRealativelyEqual(sideDistance[i], sideDistance[0]);
+                equalSides[i] = Utils.IsRelativelyEqual(sideDistance[i], sideDistance[0]);
             }
             else
             {
-                equalSides[i] = Utils.IsRealativelyEqual(sideDistance[i], sideDistance[i + 1]);
+                equalSides[i] = Utils.IsRelativelyEqual(sideDistance[i], sideDistance[i + 1]);
             }
 
-            sameSides += equalSides[i] == true ? 1 : 0;
+            congruentSides += equalSides[i] == true ? 1 : 0;
         }
 
         if (sides >= 1)
         {
-            return sameSides >= sides ? true : false;
+            return congruentSides >= sides ? true : false;
         }
         else
         {
-            return sameSides == sides ? true : false;
+            return congruentSides == sides ? true : false;
         }              
     }
 
